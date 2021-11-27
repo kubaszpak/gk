@@ -7,9 +7,10 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 import numpy as np
 import math
+import random
 
 # Constants
-N = 50
+N = 25
 
 
 def startup():
@@ -32,6 +33,11 @@ def spin(time):
     glRotatef(angle, 1.0, 0.0, 0.0)
     glRotatef(angle, 0.0, 1.0, 0.0)
     glRotatef(angle, 0.0, 0.0, 1.0)
+
+
+def set_random_color():
+    glColor3f(random.uniform(0, 1), random.uniform(
+        0, 1), random.uniform(0, 1))
 
 
 def render_egg():
@@ -63,15 +69,36 @@ def render_egg():
     #         glVertex(tab[i][j])
     # glEnd()
 
-    glBegin(GL_LINES)
-    glColor3f(1.0, 1.0, 1.0)
+    # glBegin(GL_LINES)
+    # glColor3f(1.0, 1.0, 1.0)
 
-    for i in range(N - 1):
-        for j in range(N - 1):
-            glVertex(tab[i][j])
-            glVertex(tab[i + 1][j])
+    # for i in range(N - 1):
+    #     for j in range(N - 1):
+    #         glVertex(tab[i][j])
+    #         glVertex(tab[i + 1][j])
+    #         glVertex(tab[i][j])
+    #         glVertex(tab[i][j + 1])
+    # glEnd()
+
+    glBegin(GL_TRIANGLES)
+    random.seed(10)
+
+    for i in range(1, N - 1):
+        for j in range(1, N - 1):
+            set_random_color()
             glVertex(tab[i][j])
             glVertex(tab[i][j + 1])
+            glVertex(tab[i + 1][j])
+            set_random_color()
+            glVertex(tab[i][j])
+            glVertex(tab[i][j - 1])
+            glVertex(tab[i - 1][j])
+    glColor3f(1.0, 1.0, 1.0)
+    for i in range(N):
+        for j in range(N):
+            glVertex(tab[i][j])
+            glVertex(tab[i][0])
+            glVertex(tab[0][j])
     glEnd()
 
 
