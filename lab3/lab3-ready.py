@@ -94,6 +94,7 @@ def render_egg():
             glVertex(tab[i][j - 1])
             glVertex(tab[i - 1][j])
     glColor3f(1.0, 1.0, 1.0)
+    set_random_color()
     for i in range(N):
         for j in range(N):
             glVertex(tab[i][j])

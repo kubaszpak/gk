@@ -41,7 +41,7 @@ def render_rectangle(x, y, a, b, d=0.0):
 
 def sierpinski_iteration(x, y, w, h, iteration):
 
-    if(iteration >= 1):
+    if(iteration >= 3):
         return
     else:
         iteration += 1
@@ -70,23 +70,23 @@ def sierpinski_iteration(x, y, w, h, iteration):
 def render(time):
     glClear(GL_COLOR_BUFFER_BIT)
 
-    glColor3f(0.0, 1.0, 0.0)
-    glBegin(GL_TRIANGLES)
-    glVertex2f(0.0, 0.0)
-    glVertex2f(0.0, 50.0)
-    glVertex2f(50.0, 0.0)
-    glEnd()
+    # glColor3f(0.0, 1.0, 0.0)
+    # glBegin(GL_TRIANGLES)
+    # glVertex2f(0.0, 0.0)
+    # glVertex2f(0.0, 50.0)
+    # glVertex2f(50.0, 0.0)
+    # glEnd()
 
-    glColor3f(1.0, 0.0, 0.0)
-    glBegin(GL_TRIANGLES)
-    glVertex2f(0.0, 0.0)
-    glVertex2f(0.0, 50.0)
-    glVertex2f(-50.0, 0.0)
-    glEnd()
+    # glColor3f(1.0, 0.0, 0.0)
+    # glBegin(GL_TRIANGLES)
+    # glVertex2f(0.0, 0.0)
+    # glVertex2f(0.0, 50.0)
+    # glVertex2f(-50.0, 0.0)
+    # glEnd()
 
-    glColor3f(1.0, 0.4, 0.2)
-    random.seed(10)
-    render_rectangle(-25, -25, 50, 50, random.uniform(0, 1))
+    # glColor3f(1.0, 0.4, 0.2)
+    # random.seed(10)
+    # render_rectangle(-25, -25, 50, 50, random.uniform(0, 1))
 
     def sierpinski():
         glClear(GL_COLOR_BUFFER_BIT)
@@ -97,6 +97,7 @@ def render(time):
         height = 80
         width = 120
 
+        glColor3f(0.0, 0.5, 1.0)
         render_rectangle_from_middle(x, y, width, height)
 
         h = height / 3
