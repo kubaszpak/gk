@@ -103,7 +103,6 @@ def render(time):
         phi += delta_y * pix2angle
 
     if right_mouse_button_pressed:
-        print(delta_x)
         scale += (delta_x / 100)
 
     glRotatef(theta, 0.0, 1.0, 0.0)
